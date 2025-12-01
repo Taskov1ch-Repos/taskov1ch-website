@@ -2,8 +2,8 @@ export const en = {
 	nav: {
 		home: "HOME",
 		projects: "PROJECTS",
-		about: "ABOUT",
-		links: "LINKS",
+		about: "INFO",
+		links: "CONTACT",
 		menu: "MENU",
 	},
 	common: {
@@ -16,7 +16,7 @@ export const en = {
 	},
 	home: {
 		welcome: "WELCOME // USER DETECTED",
-		subtitle: "Python & PMMP Plugin Developer",
+		subtitle: "Python Developer & PMMP Plugin Creator",
 		built_with: "BUILT WITH",
 		framework: "FRAMEWORK",
 		style: "STYLE",
@@ -25,30 +25,39 @@ export const en = {
 		title: "MY PROJECTS",
 		items: "ITEMS",
 		details: "PROJECT DETAILS",
-		view_code: "VIEW CODE",
+		view_code: "CODE",
 		source: "SOURCE",
 		loading: "LOADING README...",
-		no_data: "NO README AVAILABLE",
+		no_data: "README NOT FOUND",
 	},
 	about: {
 		title: "ABOUT ME",
 		role_label: "ROLE",
-		role_val: "FULL_STACK & INFRASTRUCTURE",
+		role_val: "VIBE-CODER / STUDENT",
 		level_label: "LEVEL",
-		level_val: "SENIOR",
+		level_val: "¯\\_(ツ)_/¯",
 		location_label: "LOCATION",
-		location_val: "REMOTE",
-		bio: "Engineer focused on building resilient digital systems. My approach combines harsh utilitarian aesthetics with robust backend logic. I do not build 'websites'; I construct interactive terminals for data consumption.",
+		location_val: "KYRGYZSTAN",
+		bio: `I enjoy creating useful tools and
+		automating routine tasks with Python.
+		Actively learning web development, including frameworks
+		such as FastAPI and Flask, as well as frontend basics with React.
+		I like solving complex problems and constantly learning
+		new things. My goal is to become a full-stack developer and
+		build high-quality web applications. (But for now, it's not looking good).
+		In my free time, I watch anime, play chess,
+		and develop random weird stuff. Atheist, partial coffee enjoyer,
+		and a bit of a perfectionist.`,
 		tag_developer: "DEVELOPER",
-		tag_available: "AVAILABLE",
+		tag_available: "SHIELD :)",
 		skills: "SKILLS",
-		looking: "Looking for new opportunities...",
-		complete: "Complete",
+		looking: "Searching for new opportunities...",
+		complete: "Completed",
 	},
 	links: {
-		subtitle: "CONTACT & SOCIAL",
-		title: "LINKS",
-		connect: "CONNECT WITH ME",
+		subtitle: "CONTACTS",
+		title: "CONTACT",
+		connect: "CONNECT",
 		ping: "PING",
 	},
 	not_found: {

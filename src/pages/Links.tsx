@@ -40,7 +40,7 @@ export const Links = () => {
 
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 					{links.map((link, index) => {
-						const Icon = getIcon(link.label);
+						const Icon = getIcon(link.label.split("_")[0]);
 						return (
 							<motion.a
 								key={link.id}
