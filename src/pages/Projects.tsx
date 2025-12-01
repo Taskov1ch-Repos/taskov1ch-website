@@ -6,6 +6,7 @@ import rehypeRaw from "rehype-raw";
 import { projects } from "../config/data";
 import { useTranslation } from "react-i18next";
 import { useGitHubReadme } from "../hooks/useGitHubReadme";
+import { useTheme } from "../hooks/useTheme";
 import { clsx } from "clsx";
 import { FaFolder, FaPlay, FaSpinner, FaStar } from "react-icons/fa6";
 import { FaExternalLinkAlt, FaTimes } from "react-icons/fa";
@@ -15,6 +16,7 @@ export const Projects = () => {
 	const [isMobileModalOpen, setIsMobileModalOpen] = useState(false);
 	const activeProject = projects.find(p => p.id === activeId) || projects[0];
 	const { t, i18n } = useTranslation();
+	const { theme } = useTheme();
 
 	const { content: readme, loading } = useGitHubReadme(
 		activeProject.repoUrl,
@@ -31,9 +33,9 @@ export const Projects = () => {
 
 	return (
 		<div className="h-full w-full flex flex-col md:flex-row relative overflow-hidden">
-			<div className="w-full md:w-1/2 flex-1 md:flex-initial h-full border-r border-zinc-800 bg-bg flex flex-col relative z-0">
-				<div className="p-8 bg-bg z-20 border-b border-zinc-800 shadow-xl shadow-black/20 shrink-0">
-					<h2 className="text-4xl font-bold text-white tracking-tight">{t("projects.title")}</h2>
+			<div className="w-full md:w-1/2 flex-1 md:flex-initial h-full border-r border-muted/20 bg-bg flex flex-col relative z-0">
+				<div className="p-8 bg-bg z-20 border-b border-muted/20 shadow-xl shadow-black/5 shrink-0">
+					<h2 className="text-4xl font-bold text-main tracking-tight">{t("projects.title")}</h2>
 					<span className="font-mono text-xs text-accent border border-accent px-2 py-0.5 mt-2 inline-block">
 						{projects.length} {t("projects.items")}
 					</span>
@@ -51,25 +53,25 @@ export const Projects = () => {
 									transition={{ delay: idx * 0.1 }}
 									onClick={() => handleProjectClick(proj.id)}
 									className={clsx(
-										"p-8 border-l-4 cursor-pointer transition-all duration-200 group relative border-b border-zinc-800/50",
-										isActive ? "bg-surface border-l-accent" : "bg-transparent border-l-transparent hover:bg-zinc-900/50 hover:border-l-zinc-600"
+										"p-8 border-l-4 cursor-pointer transition-all duration-200 group relative border-b border-muted/20",
+										isActive ? "bg-surface border-l-accent" : "bg-transparent border-l-transparent hover:bg-surface/50 hover:border-l-muted"
 									)}
 								>
 									<div className="flex justify-between items-start mb-2 relative z-10">
-										<span className="font-mono text-xs text-zinc-500">0{idx + 1} // {proj.id}</span>
+										<span className="font-mono text-xs text-muted">0{idx + 1} // {proj.id}</span>
 										{proj.isMain && <FaStar size={14} className="text-accent animate-pulse" />}
 									</div>
 
 									<h3 className={clsx(
 										"text-2xl font-bold font-sans tracking-wide relative z-10 transition-colors",
-										isActive ? "text-white" : "text-zinc-400 group-hover:text-white"
+										isActive ? "text-main" : "text-muted group-hover:text-main"
 									)}>
 										{proj.name}
 									</h3>
 
 									<div className="flex flex-wrap gap-2 mt-4 relative z-10">
 										{proj.tags.map(tag => (
-											<span key={tag} className="text-[10px] font-mono border border-zinc-800 bg-black/50 text-zinc-500 px-2 py-1 uppercase group-hover:border-zinc-600">
+											<span key={tag} className="text-[10px] font-mono border border-muted/20 bg-surface text-muted px-2 py-1 uppercase group-hover:border-muted">
 												{tag}
 											</span>
 										))}
@@ -94,7 +96,7 @@ export const Projects = () => {
 						transition={{ type: "spring", damping: 25, stiffness: 200 }}
 						className="fixed inset-0 z-[100] bg-bg flex flex-col md:hidden h-[100dvh]"
 					>
-						<div className="h-16 flex items-center justify-between px-6 border-b border-zinc-800 bg-surface z-50 shrink-0">
+						<div className="h-16 flex items-center justify-between px-6 border-b border-muted/20 bg-surface z-50 shrink-0">
 							<span className="font-mono text-sm text-accent tracking-widest flex items-center gap-2 truncate max-w-[50%]">
 								:: {activeProject.id}
 							</span>
@@ -119,19 +121,22 @@ export const Projects = () => {
 							</div>
 						</div>
 
-						<div className="flex-1 overflow-y-auto p-6 bg-black/50 custom-scrollbar relative min-h-0">
+						<div className="flex-1 overflow-y-auto p-6 bg-bg/50 custom-scrollbar relative min-h-0">
 							{loading ? (
 								<div className="flex items-center gap-2 text-accent font-mono animate-pulse p-4">
 									<FaSpinner size={16} className="animate-spin" />
 									{t("projects.loading")}
 								</div>
 							) : (
-								<div className="prose prose-invert prose-sm max-w-none prose-headings:font-sans prose-headings:uppercase prose-p:font-mono prose-p:text-zinc-400 prose-a:text-accent pb-8">
+								<div className={clsx(
+									"prose prose-sm max-w-none prose-headings:font-sans prose-headings:uppercase prose-p:font-mono prose-a:text-accent pb-8",
+									theme === "dark" ? "prose-invert prose-p:text-zinc-400" : "prose-zinc prose-p:text-muted"
+								)}>
 									<ReactMarkdown
 										remarkPlugins={[remarkGfm]}
 										rehypePlugins={[rehypeRaw]}
 										components={{
-											img: ({ node, ...props }) => <img {...props} className="border border-zinc-800 bg-black max-w-full h-auto" />
+											img: ({ node, ...props }) => <img {...props} className="border border-muted/20 bg-bg max-w-full h-auto" />
 										}}
 									>
 										{readme}
@@ -144,7 +149,7 @@ export const Projects = () => {
 			</AnimatePresence>
 
 			<div className="hidden md:flex w-1/2 bg-surface relative flex-col overflow-hidden h-full">
-				<div className="absolute inset-0 bg-[radial-gradient(#333_1px,transparent_1px)] bg-[size:20px_20px] opacity-20 pointer-events-none" />
+				<div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none" />
 
 				<div className="flex-1 overflow-y-auto p-12 custom-scrollbar relative z-10">
 					{loading ? (
@@ -153,12 +158,15 @@ export const Projects = () => {
 							<span className="animate-pulse">{t("projects.loading")}</span>
 						</div>
 					) : (
-						<div className="prose prose-invert prose-sm max-w-none prose-headings:font-sans prose-headings:uppercase prose-p:font-mono prose-p:text-zinc-400 prose-a:text-accent">
+						<div className={clsx(
+							"prose prose-sm max-w-none prose-headings:font-sans prose-headings:uppercase prose-p:font-mono prose-a:text-accent",
+							theme === "dark" ? "prose-invert prose-p:text-zinc-400" : "prose-zinc prose-p:text-muted"
+						)}>
 							<ReactMarkdown
 								remarkPlugins={[remarkGfm]}
 								rehypePlugins={[rehypeRaw]}
 								components={{
-									img: ({ node, ...props }) => <img {...props} className="border border-zinc-800 bg-black max-w-full h-auto" />
+									img: ({ node, ...props }) => <img {...props} className="border border-muted/20 bg-bg max-w-full h-auto" />
 								}}
 							>
 								{readme}
@@ -167,8 +175,8 @@ export const Projects = () => {
 					)}
 				</div>
 
-				<div className="p-6 border-t border-zinc-800 bg-bg/90 backdrop-blur flex justify-between items-center z-20 shrink-0">
-					<div className="text-[10px] font-mono text-zinc-600">
+				<div className="p-6 border-t border-muted/20 bg-bg/90 backdrop-blur flex justify-between items-center z-20 shrink-0">
+					<div className="text-[10px] font-mono text-muted">
 						{t("projects.source")}: {activeProject.repoUrl ? "GITHUB" : "LOCAL"} // {t("projects.items")}: {activeProject.id}
 					</div>
 					<a

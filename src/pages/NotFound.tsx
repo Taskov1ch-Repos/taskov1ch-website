@@ -25,7 +25,7 @@ export const NotFound = () => {
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ delay: 0.1 }}
-					className="text-6xl md:text-8xl font-bold font-sans tracking-tighter text-white mb-2"
+					className="text-6xl md:text-8xl font-bold font-sans tracking-tighter text-main mb-2"
 				>
 					404
 				</motion.h1>
@@ -34,7 +34,7 @@ export const NotFound = () => {
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					transition={{ delay: 0.2 }}
-					className="font-mono text-accent text-sm tracking-widest mb-8 border-y border-zinc-800 py-2"
+					className="font-mono text-accent text-sm tracking-widest mb-8 border-y border-zinc-800/20 py-2"
 				>
 					// {t("not_found.code")}: ROUTE_MISSING
 				</motion.div>
@@ -63,7 +63,7 @@ export const NotFound = () => {
 			</div>
 
 			<div className="absolute bottom-8 font-mono text-[10px] text-zinc-700">
-				SYSTEM_HALTED // {new Date().toISOString().split('T')[0]}
+				SYSTEM_HALTED // {new Date().toISOString().split("T")[0]}
 			</div>
 		</div>
 	);

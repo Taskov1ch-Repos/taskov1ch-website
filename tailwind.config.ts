@@ -10,14 +10,15 @@ export default {
 				mono: ["JetBrains Mono", "monospace"],
 			},
 			colors: {
-				bg: "#09090b",
-				surface: "#18181b",
-				accent: "#fbbf24",
-				cyan: "#22d3ee",
-				muted: "#71717a",
+				bg: "var(--color-bg-val)",
+				surface: "var(--color-surface-val)",
+				accent: "var(--color-accent-val)",
+				cyan: "var(--color-cyan-val)",
+				muted: "var(--color-muted-val)",
+				main: "var(--color-text-main)",
 			},
 			backgroundImage: {
-				"grid-pattern": "radial-gradient(#555 1px, transparent 1px)",
+				"grid-pattern": "radial-gradient(var(--grid-dot-color) 1px, transparent 1px)",
 			}
 		},
 	},

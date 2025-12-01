@@ -26,7 +26,7 @@ export const Home = () => {
 					initial={{ opacity: 0, x: -50 }}
 					animate={{ opacity: 1, x: 0 }}
 					transition={{ duration: 0.6, delay: 0.2 }}
-					className="text-6xl md:text-9xl font-bold font-sans tracking-tighter text-white leading-none mb-4"
+					className="text-6xl md:text-9xl font-bold font-sans tracking-tighter text-main leading-none mb-4"
 				>
 					TASKOV1CH
 				</motion.h1>
@@ -35,7 +35,7 @@ export const Home = () => {
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					transition={{ duration: 0.6, delay: 0.4 }}
-					className="text-2xl md:text-4xl text-zinc-500 font-sans uppercase tracking-tight mb-12"
+					className="text-2xl md:text-4xl text-muted font-sans uppercase tracking-tight mb-12"
 				>
 					{t("home.subtitle")}
 				</motion.div>
@@ -47,7 +47,7 @@ export const Home = () => {
 					whileHover={{ scale: 1.05 }}
 					whileTap={{ scale: 0.95 }}
 					onClick={() => navigate("/about")}
-					className="h-16 px-8 bg-zinc-900 border border-accent text-accent font-mono text-lg flex items-center gap-4 group hover:bg-accent hover:text-black transition-all duration-200"
+					className="h-16 px-8 bg-surface border border-accent text-accent font-mono text-lg flex items-center gap-4 group hover:bg-accent hover:text-black transition-all duration-200 shadow-sm"
 				>
 					<FaTerminal size={20} />
 					<span>{t("about.title")}</span>

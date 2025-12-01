@@ -1,23 +1,54 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+:root {
+	--color-bg-val: #09090b;
+	--color-surface-val: #18181b;
+	--color-accent-val: #fbbf24;
+	--color-cyan-val: #22d3ee;
+	--color-muted-val: #71717a;
+	--color-text-main: #ffffff;
+	--grid-dot-color: rgba(255, 255, 255, 0.3);
+	--color-button-bg: #27272a;
+	--color-button-text: #fbbf24;
+}
+
+:root[data-theme="light"] {
+	--color-bg-val: #f0f0f0;
+	--color-surface-val: #ffffff;
+	--color-accent-val: #ff9900;
+	--color-cyan-val: #0891b2;
+	--color-muted-val: #71717a;
+	--color-text-main: #18181b;
+	--grid-dot-color: rgba(0, 0, 0, 0.1);
+
+	--color-button-bg: #18181b;
+	--color-button-text: #ffffff;
+}
+
 @theme {
 	--font-sans: "Rajdhani", sans-serif;
 	--font-mono: "JetBrains Mono", monospace;
 
-	--color-bg: #09090b;
-	--color-surface: #18181b;
-	--color-accent: #fbbf24;
-	--color-cyan: #22d3ee;
-	--color-muted: #71717a;
-	--background-image-grid-pattern: radial-gradient(#333 1px, transparent 1px);
+	--color-bg: var(--color-bg-val);
+	--color-surface: var(--color-surface-val);
+	--color-accent: var(--color-accent-val);
+	--color-cyan: var(--color-cyan-val);
+	--color-muted: var(--color-muted-val);
+
+	--color-main: var(--color-text-main);
+
+	--background-image-grid-pattern: radial-gradient(var(--grid-dot-color) 1px, transparent 1px);
+	--color-btn-bg: var(--color-button-bg);
+	--color-btn-text: var(--color-button-text);
 }
 
 body {
 	background-color: var(--color-bg);
-	color: white;
+	color: var(--color-text-main);
 	overflow: hidden;
 	font-family: var(--font-sans);
+	transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 ::-webkit-scrollbar {

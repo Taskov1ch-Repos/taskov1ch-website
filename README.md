@@ -22,29 +22,29 @@
 
 ---
 
-## ⚡ О проекте
+## ⚡ About the Project
 
-**Taskov1ch Website** — веб-портфолио в стиле industrial futurism/cyberpunk, вдохновлённое эстетикой **Arknights: Endfield** и **Cyberpunk 2077**.
-Проект имитирует интерфейс кибернетического терминала с упором на утилитарность, читаемость и анимированную навигацию.
+**Taskov1ch Website** is a web portfolio in an industrial futurism/cyberpunk style, inspired by the aesthetics of **Arknights: Endfield** and **Cyberpunk 2077**.
+The project simulates a cyber-terminal interface with a focus on utility, readability, and animated navigation.
 
-### ✨ Основные преимущества
+### ✨ Key Features
 
-- **🎨 Кастомная дизайн-система:** Tailwind CSS v4 с расширенной системой переменных и собственной темой.
-- **📱 Адаптивный интерфейс:**
-  - **Desktop:** Двухпанельный интерфейс с предпросмотром контента.
-  - **Mobile:** Модальные окна, упрощённая навигация, оптимизация под тач.
-- **🌍 Локализация i18n:**
-  - Поддержка **EN** и **RU**, автодетект + сохранение в localStorage.
+- **🎨 Custom Design System:** Tailwind CSS v4 with an extended variable system and a custom theme.
+- **📱 Responsive Interface:**
+  - **Desktop:** Two-panel layout with content preview.
+  - **Mobile:** Modal windows, simplified navigation, optimized for touch.
+- **🌍 i18n Localization:**
+  - Support for **EN** and **RU**, autodetection + localStorage persistence.
 - **🐙 GitHub Integration:**
-  - Фетчинг `README.md` из репозиториев в реальном времени.
-- **🔄 Анимации:**
-  - Переходы страниц и микро-взаимодействия на основе **Framer Motion**.
+  - Fetches `README.md` from repositories in real time.
+- **🔄 Animations:**
+  - Page transitions and micro-interactions powered by **Framer Motion**.
 
 ---
 
-## 🛠 Технический стек
+## 🛠 Tech Stack
 
-| Категория | Технологии |
+| Category | Technologies |
 | --- | --- |
 | **Core** | React 19, TypeScript |
 | **Build Tool** | Vite |
@@ -57,61 +57,61 @@
 
 ---
 
-## 🚀 Запуск локально
+## 🚀 Run Locally
 
-1. **Клонируйте репозиторий:**
+1. **Clone the repository:**
 
    ```bash
    git clone https://github.com/taskov1ch-repos/taskov1ch-website.git
    cd taskov1ch-website
    ```
 
-2. **Установите зависимости:**
+2. **Install dependencies:**
 
    ```bash
    npm install
    ```
 
-3. **Запустите dev-сервер:**
+3. **Start the dev server:**
 
    ```bash
    npm run dev
    ```
 
-4. Откройте в браузере:
+4. Open in your browser:
 
    **[http://localhost:5173](http://localhost:5173)**
 
 ---
 
-## 📂 Структура проекта
+## 📂 Project Structure
 
 ```text
 src/
-├── components/      # UI-компоненты и атомарные элементы
-├── config/          # Настройки приложения и статические данные
-├── hooks/           # Кастомные React-хуки
-├── locales/         # JSON-файлы локализации (en/ru)
-├── pages/           # Страницы приложения
-├── types/           # TypeScript типы и интерфейсы
-├── App.tsx          # Корневой компонент + роутинг
-└── main.tsx         # Точка входа приложения
+├── components/      # UI components and atomic elements
+├── config/          # App settings and static data
+├── hooks/           # Custom React hooks
+├── locales/         # Localization JSON files (en/ru)
+├── pages/           # App pages
+├── types/           # TypeScript types and interfaces
+├── App.tsx          # Root component + routing
+└── main.tsx         # Application entry point
 ```
 
 ---
 
-## 🖼 Скриншоты
+## 🖼 Screenshots
 
-| Desktop Interface | Mobile Interface |
-| :---: | :---: |
-| <img src="public/screenshots/desktop.png" alt="Desktop Preview" width="400"> | <img src="public/screenshots/mobile.png" alt="Mobile Preview" width="200"> |
+|                               Desktop Interface                              |                              Mobile Interface                              |
+| :--------------------------------------------------------------------------: | :------------------------------------------------------------------------: |
+| <img src="public/screenshots/desktop.png" alt="Desktop Preview" width="400"> | <img src="public/screenshots/mobile.jpg" alt="Mobile Preview" width="200"> |
 
 ---
 
-## 📄 Лицензия
+## 📄 License
 
-Проект распространяется под лицензией **MIT**.
-Подробнее — в файле [LICENSE](LICENSE).
+This project is distributed under the **MIT** License.
+See the [LICENSE](LICENSE) file for details.
 
 <div align="center">
 <br />
