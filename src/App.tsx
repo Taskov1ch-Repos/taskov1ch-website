@@ -7,6 +7,7 @@ import { Projects } from "./pages/Projects";
 import { About } from "./pages/About";
 import { Links } from "./pages/Links";
 import "./App.css";
+import { NotFound } from "./pages/NotFound";
 
 const PageTransition = ({ children }: { children: React.ReactNode }) => (
 	<motion.div
@@ -29,6 +30,7 @@ const AnimatedRoutes = () => {
 				<Route path="/projects" element={<PageTransition><Projects /></PageTransition>} />
 				<Route path="/about" element={<PageTransition><About /></PageTransition>} />
 				<Route path="/links" element={<PageTransition><Links /></PageTransition>} />
+				<Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
 			</Routes>
 		</AnimatePresence>
 	);

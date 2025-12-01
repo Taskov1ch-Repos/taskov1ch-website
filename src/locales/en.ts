@@ -50,5 +50,10 @@ export const en = {
 		title: "LINKS",
 		connect: "CONNECT WITH ME",
 		ping: "PING",
+	},
+	not_found: {
+		code: "SYSTEM_ERROR",
+		message: "The requested sector does not exist or access is restricted.",
+		return: "RETURN TO BASE",
 	}
 };
