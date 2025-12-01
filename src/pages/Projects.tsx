@@ -31,6 +31,22 @@ export const Projects = () => {
 		}
 	};
 
+	const transformUrl = (url: string) => {
+		if (url.startsWith("http:") || url.startsWith("https:") || url.startsWith("//") || url.startsWith("#") || url.startsWith("mailto:")) {
+			return url;
+		}
+
+		if (!activeProject.repoUrl) return url;
+
+		const repoPath = activeProject.repoUrl.replace("https://github.com/", "").replace(/\/$/, "");
+		const branch = activeProject.repoBranch || "main";
+		const baseRawUrl = `https://raw.githubusercontent.com/${repoPath}/${branch}`;
+
+		const cleanUrl = url.replace(/^\.?\//, "");
+
+		return `${baseRawUrl}/${cleanUrl}`;
+	};
+
 	return (
 		<div className="h-full w-full flex flex-col md:flex-row relative overflow-hidden">
 			<div className="w-full md:w-1/2 flex-1 md:flex-initial h-full border-r border-muted/20 bg-bg flex flex-col relative z-0">
@@ -135,6 +151,7 @@ export const Projects = () => {
 									<ReactMarkdown
 										remarkPlugins={[remarkGfm]}
 										rehypePlugins={[rehypeRaw]}
+										urlTransform={transformUrl}
 										components={{
 											img: ({ node, ...props }) => <img {...props} className="border border-muted/20 bg-bg max-w-full h-auto" />
 										}}
@@ -165,6 +182,7 @@ export const Projects = () => {
 							<ReactMarkdown
 								remarkPlugins={[remarkGfm]}
 								rehypePlugins={[rehypeRaw]}
+								urlTransform={transformUrl}
 								components={{
 									img: ({ node, ...props }) => <img {...props} className="border border-muted/20 bg-bg max-w-full h-auto" />
 								}}
