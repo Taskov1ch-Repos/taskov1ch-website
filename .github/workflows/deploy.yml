@@ -2,15 +2,13 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ] # Или master, проверь как называется твоя ветка
+    branches: [ main ]
 
-# Разрешаем GITHUB_TOKEN деплоить страницы
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Разрешаем только один конкурентный деплой
 concurrency:
   group: "pages"
   cancel-in-progress: true
@@ -34,21 +32,13 @@ jobs:
       - name: Build 🏗️
         run: npm run build
 
-      - name: Setup Pages 🔧
-        uses: actions/configure-pages@v4
-
-      - name: Upload artifact 📤
-        uses: actions/upload-pages-artifact@v4
+      - name: Deploy to External Repository 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          path: './dist' # Vite по умолчанию собирает в dist
+          token: ${{ secrets.API_TOKEN_GITHUB }}
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages 🚀
-        id: deployment
-        uses: actions/deploy-pages@v4
+          repository-name: taskov1ch/taskov1ch.github.io
+
+          branch: gh-pages
+
+          folder: dist

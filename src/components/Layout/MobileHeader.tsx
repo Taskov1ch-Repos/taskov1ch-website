@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Menu, X, Activity } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useDeviceDetect } from "../../hooks/useDeviceDetect";
+import { FaBars, FaSignal } from "react-icons/fa6";
+import { FaTimes } from "react-icons/fa";
 
 export const MobileHeader = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -38,7 +39,7 @@ export const MobileHeader = () => {
 						{i18n.language.toUpperCase()}
 					</button>
 					<button onClick={() => setIsOpen(true)} className="text-accent p-1">
-						<Menu />
+						<FaBars />
 					</button>
 				</div>
 			</header>
@@ -58,7 +59,7 @@ export const MobileHeader = () => {
 								:: {t("nav.menu")}
 							</span>
 							<button onClick={() => setIsOpen(false)} className="text-accent p-2 border border-accent active:bg-accent active:text-black transition-colors">
-								<X size={24} />
+								<FaTimes size={24} />
 							</button>
 						</div>
 
@@ -91,7 +92,7 @@ export const MobileHeader = () => {
 
 						<div className="p-8 bg-black border-t border-zinc-800 shrink-0">
 							<div className="flex items-center gap-3 text-xs font-mono text-zinc-600 mb-2">
-								<Activity size={12} className="text-accent" />
+								<FaSignal size={12} className="text-accent" />
 								<span>SIGNAL: STRONG</span>
 							</div>
 							<div className="font-mono text-xs text-zinc-600">

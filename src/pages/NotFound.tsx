@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { AlertTriangle, Home } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { FaExclamationTriangle, FaHome } from "react-icons/fa";
 
 export const NotFound = () => {
 	const navigate = useNavigate();
@@ -18,7 +18,7 @@ export const NotFound = () => {
 					transition={{ type: "spring", duration: 0.5 }}
 					className="flex justify-center mb-6 text-accent"
 				>
-					<AlertTriangle size={64} strokeWidth={1.5} />
+					<FaExclamationTriangle size={64} strokeWidth={1.5} />
 				</motion.div>
 
 				<motion.h1
@@ -57,7 +57,7 @@ export const NotFound = () => {
 					onClick={() => navigate("/")}
 					className="px-8 py-3 bg-white text-black font-bold font-sans flex items-center gap-3 mx-auto hover:bg-accent transition-colors"
 				>
-					<Home size={18} />
+					<FaHome size={18} />
 					<span>{t("not_found.return")}</span>
 				</motion.button>
 			</div>

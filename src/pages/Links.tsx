@@ -1,19 +1,22 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { links } from "../config/data";
-import { ArrowUpRight, Link2, Github, Linkedin, Twitter, Mail } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { FaDiscord, FaGithub, FaLink, FaSteam, FaTelegram, FaVk } from "react-icons/fa6";
+import { BsArrowUpRight } from "react-icons/bs";
+import { FaMailBulk } from "react-icons/fa";
 
 export const Links = () => {
 	const { t } = useTranslation();
 
 	const getIcon = (label: string) => {
 		switch (label) {
-			case "GITHUB": return Github;
-			case "LINKEDIN": return Linkedin;
-			case "TWITTER": return Twitter;
-			case "MAIL": return Mail;
-			default: return Link2;
+			case "GITHUB": return FaGithub;
+			case "VK": return FaVk;
+			case "TELEGRAM": return FaTelegram;
+			case "MAIL": return FaMailBulk;
+			case "STEAM": return FaSteam;
+			case "DISCORD": return FaDiscord;
+			default: return FaLink;
 		}
 	};
 
@@ -55,7 +58,7 @@ export const Links = () => {
 
 								<div className="relative z-10 flex justify-between items-start">
 									<Icon size={32} className="text-white group-hover:text-black transition-colors" />
-									<ArrowUpRight size={24} className="text-zinc-600 group-hover:text-black transition-colors" />
+									<BsArrowUpRight size={24} className="text-zinc-600 group-hover:text-black transition-colors" />
 								</div>
 
 								<div className="relative z-10">

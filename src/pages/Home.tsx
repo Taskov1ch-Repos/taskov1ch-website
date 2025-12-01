@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Terminal } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { FaArrowRight, FaTerminal } from "react-icons/fa6";
 
 export const Home = () => {
 	const navigate = useNavigate();
@@ -49,9 +49,9 @@ export const Home = () => {
 					onClick={() => navigate("/about")}
 					className="h-16 px-8 bg-zinc-900 border border-accent text-accent font-mono text-lg flex items-center gap-4 group hover:bg-accent hover:text-black transition-all duration-200"
 				>
-					<Terminal size={20} />
+					<FaTerminal size={20} />
 					<span>{t("about.title")}</span>
-					<ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+					<FaArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
 				</motion.button>
 			</div>
 

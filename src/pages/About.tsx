@@ -1,10 +1,15 @@
 import { motion } from "framer-motion";
 import { skills } from "../config/data";
-import { User, ShieldCheck, Code2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useMemo } from "react";
+import { FaCode, FaShieldHalved, FaUser } from "react-icons/fa6";
 
 export const About = () => {
 	const { t } = useTranslation();
+
+	const categories = useMemo(() => {
+		return [...new Set(skills.map((skill) => skill.category))];
+	}, []);
 
 	return (
 		<div className="h-full w-full overflow-y-auto p-6 md:p-12 custom-scrollbar">
@@ -27,10 +32,10 @@ export const About = () => {
 
 							<div className="flex gap-4 mt-8 relative z-10">
 								<div className="flex items-center gap-2 text-zinc-500 font-mono text-xs border border-zinc-800 px-3 py-1 bg-black">
-									<User size={12} /> {t("about.tag_developer")}
+									<FaUser size={12} /> {t("about.tag_developer")}
 								</div>
 								<div className="flex items-center gap-2 text-zinc-500 font-mono text-xs border border-zinc-800 px-3 py-1 bg-black">
-									<ShieldCheck size={12} /> {t("about.tag_available")}
+									<FaShieldHalved size={12} /> {t("about.tag_available")}
 								</div>
 							</div>
 						</div>
@@ -45,16 +50,17 @@ export const About = () => {
 						className="bg-black border border-zinc-800 p-8 h-full"
 					>
 						<h3 className="font-sans text-2xl font-bold text-white mb-8 flex items-center gap-2">
-							<Code2 className="text-accent" size={20} /> {t("about.skills")}
+							<FaCode className="text-accent" size={20} /> {t("about.skills")}
 						</h3>
 
 						<div className="space-y-8">
-							{["LANG", "FRAMEWORK", "TOOL"].map((category) => (
+							{categories.map((category) => (
 								<div key={category}>
 									<h4 className="font-mono text-[10px] text-zinc-500 mb-3 border-b border-zinc-800 pb-1">
                     // {category}
 									</h4>
 									<div className="space-y-3">
+										{/* Фильтруем оригинальный массив skills по текущей категории цикла */}
 										{skills.filter(s => s.category === category).map(skill => (
 											<div key={skill.name} className="group/skill">
 												<div className="flex justify-between mb-1">

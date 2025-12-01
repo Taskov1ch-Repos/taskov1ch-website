@@ -1,14 +1,14 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Terminal, Box, Cpu, Radio, Languages } from "lucide-react";
 import { clsx } from "clsx";
 import { useDeviceDetect } from "../../hooks/useDeviceDetect";
+import { FaCube, FaGlobe, FaLink, FaMicrochip, FaTerminal } from "react-icons/fa6";
 
 const NAV_ITEMS = [
-	{ path: "/", label: "nav.home", icon: Terminal },
-	{ path: "/projects", label: "nav.projects", icon: Box },
-	{ path: "/about", label: "nav.about", icon: Cpu },
-	{ path: "/links", label: "nav.links", icon: Radio },
+	{ path: "/", label: "nav.home", icon: FaTerminal },
+	{ path: "/projects", label: "nav.projects", icon: FaCube },
+	{ path: "/about", label: "nav.about", icon: FaMicrochip },
+	{ path: "/links", label: "nav.links", icon: FaLink },
 ];
 
 export const Sidebar = () => {
@@ -61,7 +61,7 @@ export const Sidebar = () => {
 			</nav>
 
 			<button onClick={toggleLang} className="h-16 flex items-center border-t border-zinc-800 hover:bg-zinc-900 overflow-hidden relative group/lang">
-				<div className="min-w-[5rem] flex justify-center text-zinc-500 group-hover/lang:text-white transition-colors"><Languages size={18} /></div>
+				<div className="min-w-[5rem] flex justify-center text-zinc-500 group-hover/lang:text-white transition-colors"><FaGlobe size={18} /></div>
 				<span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-mono text-xs text-accent whitespace-nowrap absolute left-20">
 					LANG: [{i18n.language.toUpperCase()}]
 				</span>

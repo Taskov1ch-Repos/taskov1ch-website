@@ -8,18 +8,18 @@ export interface Project {
 	cover?: string;
 	repoUrl?: string;
 	repoBranch?: string;
-	status: "ONLINE" | "OFFLINE" | "DEV";
+	status: "STABLE" | "BETA" | "ALPHA" | "DEV";
 }
 
 export interface Skill {
 	name: string;
 	level: number;
-	category: "LANG" | "FRAMEWORK" | "TOOL";
+	category: string;
 }
 
 export interface LinkItem {
 	id: string;
 	label: string;
 	url: string;
-	category: "SOCIAL" | "CODE" | "CONTACT";
+	category: string;
 }

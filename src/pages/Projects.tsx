@@ -6,8 +6,9 @@ import rehypeRaw from "rehype-raw";
 import { projects } from "../config/data";
 import { useTranslation } from "react-i18next";
 import { useGitHubReadme } from "../hooks/useGitHubReadme";
-import { Loader2, Folder, ArrowUpRight, X, MonitorPlay, Star } from "lucide-react";
 import { clsx } from "clsx";
+import { FaFolder, FaPlay, FaSpinner, FaStar } from "react-icons/fa6";
+import { FaExternalLinkAlt, FaTimes } from "react-icons/fa";
 
 export const Projects = () => {
 	const [activeId, setActiveId] = useState<string>(projects[0].id);
@@ -56,7 +57,7 @@ export const Projects = () => {
 								>
 									<div className="flex justify-between items-start mb-2 relative z-10">
 										<span className="font-mono text-xs text-zinc-500">0{idx + 1} // {proj.id}</span>
-										{proj.isMain && <Star size={14} className="text-accent animate-pulse" />}
+										{proj.isMain && <FaStar size={14} className="text-accent animate-pulse" />}
 									</div>
 
 									<h3 className={clsx(
@@ -75,7 +76,7 @@ export const Projects = () => {
 									</div>
 
 									<div className="md:hidden absolute bottom-8 right-8 opacity-0 group-hover:opacity-100 transition-opacity text-accent">
-										<MonitorPlay size={20} />
+										<FaPlay size={20} />
 									</div>
 								</motion.div>
 							);
@@ -104,16 +105,16 @@ export const Projects = () => {
 									target="_blank"
 									className="h-10 px-3 bg-accent text-black font-bold font-sans text-xs hover:bg-white transition-colors flex items-center gap-2"
 								>
-									<Folder size={16} />
+									<FaFolder size={16} />
 									<span className="hidden sm:inline">{t("projects.view_code")}</span>
-									<ArrowUpRight size={16} />
+									<FaExternalLinkAlt size={16} />
 								</a>
 
 								<button
 									onClick={() => setIsMobileModalOpen(false)}
 									className="p-2 border border-accent text-accent active:bg-accent active:text-black transition-colors"
 								>
-									<X size={24} />
+									<FaTimes size={24} />
 								</button>
 							</div>
 						</div>
@@ -121,7 +122,7 @@ export const Projects = () => {
 						<div className="flex-1 overflow-y-auto p-6 bg-black/50 custom-scrollbar relative min-h-0">
 							{loading ? (
 								<div className="flex items-center gap-2 text-accent font-mono animate-pulse p-4">
-									<Loader2 size={16} className="animate-spin" />
+									<FaSpinner size={16} className="animate-spin" />
 									{t("projects.loading")}
 								</div>
 							) : (
@@ -148,7 +149,7 @@ export const Projects = () => {
 				<div className="flex-1 overflow-y-auto p-12 custom-scrollbar relative z-10">
 					{loading ? (
 						<div className="h-full flex flex-col items-center justify-center gap-4 text-accent font-mono opacity-80">
-							<Loader2 className="animate-spin w-8 h-8" />
+							<FaSpinner className="animate-spin w-8 h-8" />
 							<span className="animate-pulse">{t("projects.loading")}</span>
 						</div>
 					) : (
@@ -175,7 +176,7 @@ export const Projects = () => {
 						target="_blank"
 						className="flex items-center gap-2 bg-accent text-black px-6 py-3 font-bold font-sans text-sm hover:bg-white transition-colors"
 					>
-						<Folder size={16} /> {t("projects.view_code")} <ArrowUpRight size={16} />
+						<FaFolder size={16} /> {t("projects.view_code")} <FaExternalLinkAlt size={16} />
 					</a>
 				</div>
 			</div>
