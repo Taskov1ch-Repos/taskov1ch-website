@@ -51,7 +51,7 @@ The project simulates a cyber-terminal interface with a focus on utility, readab
 | **Styling** | Tailwind CSS v4 |
 | **Router** | React Router DOM |
 | **Animation** | Framer Motion |
-| **Icons** | Lucide React |
+| **Icons** | React Icons |
 | **i18n** | i18next, react-i18next |
 | **Markdown** | react-markdown, remark-gfm |
 
