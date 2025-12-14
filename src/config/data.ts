@@ -55,7 +55,7 @@ export const links: LinkItem[] = [
 	{ id: "L3", label: "TELEGRAM", url: "https://t.me/taskov1ch", category: "CONTACT" },
 	{ id: "L4", label: "MAIL", url: "mailto:sudo.taskov1ch@gmail.com", category: "CONTACT" },
 	{ id: "L5", label: "STEAM", url: "https://steamcommunity.com/id/taskov1ch/", category: "SOCIAL" },
-	{ id: "L6", label: "DISCORD", url: "https://discord.gg/taskov1ch", category: "CONTACT" },
+	{ id: "L6", label: "DISCORD", url: "https://discord.gg/BjrYgnD8p", category: "CONTACT" },
 	{ id: "L7", label: "ANIXART", url: "https://anixart-app.com/profile/1932711", category: "OTHERS" },
 	{ id: "L8", label: "MY_NICKNAME", url: "https://mynickname.com/taskov1ch", category: "OTHERS" }
 ];
